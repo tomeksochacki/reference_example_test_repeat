@@ -2,31 +2,39 @@ package com.testexampletestreference;
 
 public class Main {
     public static void main(String[] args) {
-        int a = 53;
-        int b = a;
+        int a = 20;
 
-        b = 30;
-
+        Test test1 = new Test();
+        a = test1.changeValue(a);
         System.out.println(a);
-
-        Test x = new Test();
-        Test y = x;
-
-        y.a = 40;
-
-        System.out.println(y.a);
-
-        String imie = "Tomek";
-        String imie2 = imie;
-
-        //imie2 = "Tom";
-        System.out.println(imie2);;
+        Foo foo = new Foo();
+        test1.changeValueTwo(foo);
+        System.out.println(foo.y);
+        String name1 = "Tomek";
+        String name2 = test1.changeName(name1);
+        System.out.println(name2);
     }
 }
 
 class Test{
 
-    int a = 20;
+    int changeValue(int chV){
+        chV = chV + 2;
+        return chV;
+    }
+
+    void changeValueTwo(Foo chV){
+        chV.y = chV.y + 40;
+    }
+
+    String changeName(String name){
+        name = name + " Sochacki";
+        return name;
+    }
+}
+
+class Foo{
+    int y = 20;
 }
 
 
